@@ -1,14 +1,18 @@
 package com.in28minutes.rest.webservices.restfullwebservices.user;
 
 import java.util.Date;
-import java.util.List;
 
-import com.in28minutes.rest.webservices.restfullwebservices.user.posts.Post;
+import javax.validation.constraints.Past;
+import javax.validation.constraints.Size;
 
 public class User {
 
     private Integer id;
+    
+    @Size(min=3, message="User must have atleast 3 characters")
     private String name;
+    
+    @Past
     private Date birthday;
 
     protected User() {

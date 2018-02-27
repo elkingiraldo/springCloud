@@ -2,8 +2,10 @@ package com.in28minutes.rest.webservices.restfullwebservices.exception;
 
 import java.util.Date;
 
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestController;
@@ -76,7 +78,7 @@ public class CustomizeResponseEntityExceptionHandler extends ResponseEntityExcep
 
 	return new ResponseEntity(exceptionResponse, HttpStatus.CONFLICT);
     }
-    
+
     @ExceptionHandler(UserInconsistentException.class)
     public final ResponseEntity<Object> handleUserInconsistentException(UserInconsistentException ex,
 	    WebRequest request) {
@@ -85,6 +87,16 @@ public class CustomizeResponseEntityExceptionHandler extends ResponseEntityExcep
 		request.getDescription(false));
 
 	return new ResponseEntity(exceptionResponse, HttpStatus.CONFLICT);
+    }
+
+    @Override
+    protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex,
+	    HttpHeaders headers, HttpStatus status, WebRequest request) {
+
+	ExceptionResponse exceptionResponse = new ExceptionResponse(new Date(), "Validation Failed",
+		ex.getBindingResult().toString());
+
+	return new ResponseEntity(exceptionResponse, HttpStatus.BAD_REQUEST);
     }
 
 }
