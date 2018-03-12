@@ -1,49 +1,46 @@
 package com.in28minutes.rest.webservices.restfullwebservices.user.posts;
 
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
+import com.in28minutes.rest.webservices.restfullwebservices.user.User;
+
+@Entity
 public class Post {
 
-    private Integer id;
-    private Integer userId;
-    private String body;
+	@Id
+	@GeneratedValue
+	private Integer id;
 
-    protected Post() {
+	@ManyToOne(fetch = FetchType.LAZY)
+	private User user;
+	private String body;
 
-    }
+	public Integer getId() {
+		return id;
+	}
 
-    public Post(Integer id, Integer userId, String body) {
-	super();
-	this.id = id;
-	this.userId = userId;
-	this.body = body;
-    }
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
-    public Integer getId() {
-	return id;
-    }
+	public User getUser() {
+		return user;
+	}
 
-    public void setId(Integer id) {
-	this.id = id;
-    }
+	public void setUser(User user) {
+		this.user = user;
+	}
 
-    public Integer getUserId() {
-	return userId;
-    }
+	public String getBody() {
+		return body;
+	}
 
-    public void setUserId(Integer userId) {
-	this.userId = userId;
-    }
-
-    public String getBody() {
-	return body;
-    }
-
-    public void setBody(String body) {
-	this.body = body;
-    }
-
-    @Override
-    public String toString() {
-	return "Post [id=" + id + ", userId=" + userId + ", body=" + body + "]";
-    }
+	public void setBody(String body) {
+		this.body = body;
+	}
 
 }
