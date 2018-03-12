@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.in28minutes.rest.webservices.restfullwebservices.user.User;
 
 @Entity
@@ -16,7 +17,9 @@ public class Post {
 	private Integer id;
 
 	@ManyToOne(fetch = FetchType.LAZY)
+	@JsonIgnore
 	private User user;
+	
 	private String body;
 
 	public Integer getId() {

@@ -4,7 +4,6 @@ import static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;
 import static org.springframework.hateoas.mvc.ControllerLinkBuilder.methodOn;
 
 import java.net.URI;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -25,7 +24,6 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.in28minutes.rest.webservices.restfullwebservices.user.posts.NoPostsFoundException;
 import com.in28minutes.rest.webservices.restfullwebservices.user.posts.Post;
-import com.in28minutes.rest.webservices.restfullwebservices.user.posts.PostAlreadyExistException;
 import com.in28minutes.rest.webservices.restfullwebservices.user.posts.PostDaoService;
 import com.in28minutes.rest.webservices.restfullwebservices.user.posts.PostNotFoundException;
 
