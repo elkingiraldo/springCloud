@@ -20,7 +20,7 @@ public class SwaggerConfig {
 			"elkin.giraldo.pinedo@gmail.com");
 
 	public static final ApiInfo DEFAULT_API_INFO = new ApiInfo("Elkin Api Tittle", "Elkin Api Documentation", "1.0",
-			"urn:tos", DEFAULT_CONTACT, "Apache 2.0", "http://www.apache.org/licenses/LICENSE-2.0");
+			"urn:tos", "Apache 2.0", "http://www.apache.org/licenses/LICENSE-2.0","");
 
 	private static final Set<String> DEFAULT_PRODUCES_AND_CONSUMES = new HashSet<String>(
 			Arrays.asList("application/json", "application/xml"));
