@@ -19,6 +19,8 @@ public class User {
     
     @Past
     @ApiModelProperty(notes="Birth date shuld be in the past")
+    //For avoid to send back user birthday info
+    //@JsonIgnore
     private Date birthday;
 
     protected User() {
